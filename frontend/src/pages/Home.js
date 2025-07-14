@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 
 import ipIllustration from '../assets/ipIllustration.png';
@@ -7,6 +7,15 @@ import supportIcon from '../assets/supportIcon.png';
 import globalIcon from '../assets/globalIcon.png';
 
 const Home = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/blogs`)
+      .then((res) => res.json())
+      .then((data) => setBlogs(data))
+      .catch((err) => console.error('Failed to fetch blogs:', err));
+  }, []);
+
   return (
     <div className="home-container">
 
@@ -14,9 +23,7 @@ const Home = () => {
       <section className="hero-section" id="home" data-aos="fade-up">
         <div className="hero-text">
           <h1>Site in progress</h1>
-          <p>
-            Soon we will be live
-          </p>
+          <p>Soon we will be live</p>
         </div>
         <div className="hero-image">
           <img src={ipIllustration} alt="IP Services" />
@@ -26,9 +33,7 @@ const Home = () => {
       {/* Our Services Section */}
       <section className="services-section" id="services" data-aos="fade-up">
         <h2>Our Services</h2>
-        <p>
-          XXXX
-        </p>
+        <p>XXXX</p>
       </section>
 
       {/* Why Choose Us Section */}
@@ -53,6 +58,23 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="blog-section" id="blogs" data-aos="fade-up">
+        <h2>Latest Blogs</h2>
+        {blogs.length === 0 ? (
+          <p>No blogs available yet.</p>
+        ) : (
+          <div className="blog-list">
+            {blogs.map((blog) => (
+              <div key={blog._id} className="blog-card">
+                <h3>{blog.title}</h3>
+                <p>{blog.content}</p>
+                <small>{new Date(blog.date).toLocaleString()}</small>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 };
