@@ -1,30 +1,30 @@
 /* Navbar.css */
-
 .navbar-new {
   background-color: rgb(224, 225, 221);
-  padding: 25px 30px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  flex-wrap: wrap; /* allow items to wrap */
   box-shadow: 0 2px 8px rgba(216, 205, 205, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
-  flex-wrap: wrap;
 }
 
 .navbar-logo {
+  flex: 1 1 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .navbar-logo a {
   text-decoration: none;
   color: #11335c;
-  font-size: 45px;
+  font-size: 32px;
   font-weight: 800;
-  padding: 5px 100px;
+  padding: 8px 20px;
   transition: all 0.3s ease;
 }
 
@@ -35,20 +35,19 @@
 }
 
 .navbar-links {
+  flex: 1 1 100%;
   display: flex;
-  gap: 100px;
-  align-items: center;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* Links */
 .navbar-links a {
   text-decoration: none;
   color: #11335c;
-  font-size: 30px;
-  font-weight: 800;
-  padding: 0px 2px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 6px 10px;
   transition: all 0.3s ease;
 }
 
@@ -58,34 +57,30 @@
   border-radius: 8px;
 }
 
-/* Hide hamburger icon completely */
-.hamburger {
-  display: none !important;
-}
-
-/* Mobile view – show items in row with wrapping */
-@media (max-width: 992px) {
+/* Optional: adjust layout for desktop view */
+@media (min-width: 768px) {
   .navbar-new {
-    flex-direction: row;
-    height: auto;
-    padding: 15px 10px;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 25px 30px;
   }
 
-  .navbar-logo a {
-    padding: 10px 20px;
-    font-size: 34px;
+  .navbar-logo {
+    flex: unset;
+    margin-bottom: 0;
   }
 
   .navbar-links {
-    flex-direction: row;
-    gap: 30px;
-    margin-top: 10px;
-    justify-content: flex-start;
+    flex: unset;
+    justify-content: flex-end;
+    gap: 80px;
+  }
+
+  .navbar-logo a {
+    font-size: 45px;
+    padding-left: 50px;
   }
 
   .navbar-links a {
-    font-size: 20px;
-    padding: 6px 8px;
+    font-size: 24px;
   }
 }
