@@ -16,8 +16,6 @@ const Home = () => {
           <h1 className="hero-title">Your Trusted Partner in IP</h1>
           <p className="hero-subtitle">
             Empowering startups, enterprises, and creators to safeguard their innovations through professional IP services—strategically protecting your competitive edge.
-
-.
           </p>
         </div>
       </div>
