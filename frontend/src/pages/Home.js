@@ -10,7 +10,6 @@ const Home = () => {
       <div className="hero-split">
         <div className="hero-left">
           <img src={heroImg} alt="Hero" className="hero-table-image" />
-          <p className="hero-caption">Example of IP service flow or document visualization</p>
         </div>
         <div className="hero-right">
           <h1 className="hero-title">Your Trusted Partner in IP</h1>
