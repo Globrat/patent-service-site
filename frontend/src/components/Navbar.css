@@ -1,32 +1,54 @@
-.navbar {
+/* Navbar.css */
+.navbar-new {
+  background-color: rgb(224, 225, 221); /* <-- your custom color */
+  padding: 25px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #003f87;
-  padding: 1rem 2rem;
-  color: white;
+  height: 100px;
+  box-shadow: 0 2px 8px rgba(216, 205, 205, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-logo a {
   text-decoration: none;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
+  color: #11335c;
+  font-size: 45px;
+  font-weight: 800;
+  padding: 5px 100px;
+  transition: all 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  color: #250285;
+  background-color: #e2eef0;
+  border-radius: 8px;
 }
 
 .navbar-links {
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 100px;
+  align-items: last center;
 }
 
-.navbar-links li a {
+.navbar-links a {
   text-decoration: none;
-  color: white;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  color: #11335c;
+  font-size: 30px;
+  font-weight: 800;
+  padding: 0px 2px;
+  transition: all 0.3s ease;
 }
 
-.navbar-links li a:hover {
-  color: #ffcc00;
+.navbar-links a:hover {
+  color: #250285;
+  background-color: #07d3f2;
+  border-radius: 8px;
 }

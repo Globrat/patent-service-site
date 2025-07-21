@@ -1,41 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import './Blog.css';
+import '../styles.css';
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/blogs')
-      .then((res) => res.json())
-      .then((data) => {
-        setBlogs(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error fetching blogs:', err);
-        setLoading(false);
-      });
+    fetch('/api/blogs')
+      .then(res => res.json())
+      .then(setPosts)
+      .catch(console.error);
   }, []);
 
   return (
-    <div className="blog-container">
-      <h1>Our Blog</h1>
-      {loading ? (
-        <p>Loading articles...</p>
-      ) : blogs.length === 0 ? (
-        <p>No blog posts found.</p>
-      ) : (
-        blogs.map((blog) => (
-          <div key={blog._id} className="blog-card">
-            <h2>{blog.title}</h2>
-            <p className="blog-date">
-              {new Date(blog.date || blog.createdAt).toLocaleDateString()}
-            </p>
-            <p>{blog.content}</p>
-          </div>
-        ))
-      )}
+    <div>
+      <section className="section">
+        <h1>Blog</h1>
+        {posts.length === 0 ? (
+          <p>No blog posts available.</p>
+        ) : (
+          posts.map(post => (
+            <div key={post._id} style={{ marginBottom: '2rem' }}>
+              <h3>{post.title}</h3>
+              <p>{post.content}</p>
+            </div>
+          ))
+        )}
+      </section>
     </div>
   );
 };

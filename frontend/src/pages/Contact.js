@@ -1,9 +1,13 @@
 import React from 'react';
+import '../styles.css';
 
 const Contact = () => (
-  <div className="page">
-    <h1>Contact Us</h1>
-    <p>We're here to help — reach out via email or phone.</p>
+  <div>
+    <section className="section">
+      <h1>Contact Us</h1>
+      <p>Email: contact@globrat.com</p>
+      <p>Phone: +91-XXXXXXXXXX</p>
+    </section>
   </div>
 );
 
