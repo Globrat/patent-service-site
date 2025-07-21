@@ -5,8 +5,7 @@ const Contact = () => (
   <div>
     <section className="section">
       <h1>Contact Us</h1>
-      <p>Email: contact@globrat.com</p>
-      <p>Phone: +91-XXXXXXXXXX</p>
+      <p>Email: info@globrat.com</p>
     </section>
   </div>
 );
